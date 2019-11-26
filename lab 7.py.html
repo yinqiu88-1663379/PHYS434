@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[21]:
+
+
+# import library
+import numpy as np
+from scipy import stats
+from scipy.stats import poisson
+import matplotlib.pyplot as plt
+import pickle
+
+# open the file of interest, and use pickle loading
+infile_higgs = open ("higgs_100000_pt_250_500.pkl",'rb')
+new_dict_higgs = pickle.load(infile_higgs)
+
+# list all keys of the files
+new_dict_higgs.keys()
+
+
+# In[27]:
+
+
+for i in range(10):
+ print(new_dict_higgs['mass'][i],new_dict_higgs['pt'][i])
+
+
+# In[28]:
+
+
+
+# open the file of interest, and use pickle loading
+infile_qcd = open ("qcd_100000_pt_250_500.pkl",'rb')
+new_dict_qcd = pickle.load(infile_qcd)
+
+# list all keys of the files
+new_dict_qcd.keys()
+
+
+# In[29]:
+
+
+for i in range(10):
+ print(new_dict_qcd['mass'][i],new_dict_qcd['pt'][i])
+
+
+# In[30]:
+
+
+x_higgs = new_dict_higgs['mass']
+y_higgs = new_dict_higgs['pt']
+plt.plot(x_higgs,y_higgs)
+
+
+# In[31]:
+
+
+x_qcd = new_dict_qcd['mass']
+y_qcd = new_dict_qcd['pt']
+plt.plot(x_qcd,y_qcd)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
